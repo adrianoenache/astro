@@ -1,2 +1,3 @@
-# astro
+# Astro
+
 Learning Astro
