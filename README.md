@@ -23,8 +23,8 @@ Inside of your Astro project, you'll see the following folders and files:
 │   │   └── background.svg
 │   ├── components
 │   │   └── Welcome.astro
-│   │   └── menu.astro
-│   │   └── menuBlog.astro
+│   │   └── Menu.astro
+│   │   └── MenuBlog.astro
 │   ├── layouts
 │   │   └── Layout.astro
 │   └── pages
