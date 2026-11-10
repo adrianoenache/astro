@@ -24,14 +24,19 @@ Inside of your Astro project, you'll see the following folders and files:
 │   ├── components
 │   │   └── Welcome.astro
 │   │   └── menu.astro
+│   │   └── menuBlog.astro
 │   ├── layouts
 │   │   └── Layout.astro
 │   └── pages
 │       └── index.astro
-│       └── about.astro
-│       └── blog.astro
 │       └── 404.astro
 │       └── 500.astro
+│       └── about.astro
+│       └── blog.astro
+│       └── posts
+│           └── post-1.astro
+│           └── post-2.astro
+│           └── post-3.astro
 └── package.json
 ```
 
