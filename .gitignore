@@ -5,6 +5,7 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 lerna-debug.log*
+pnpm-debug.log*
 
 # Diagnostic reports (https://nodejs.org/api/report.html)
 report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
@@ -68,6 +69,7 @@ web_modules/
 # dotenv environment variable files
 .env
 .env.*
+.env.production
 !.env.example
 
 # parcel-bundler cache (https://parceljs.org/)
@@ -147,3 +149,12 @@ vite.config.ts.timestamp-*
 
 # Turbo Repo
 .turbo
+
+# build output
+dist/
+
+# macOS-specific files
+.DS_Store
+
+# jetbrains setting folder
+.idea/
