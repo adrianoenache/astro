@@ -8,9 +8,11 @@ interface Props {
   error: unknown;
 }
 const { error } = Astro.props;
+
+const pageTitle = "Erro Interno do Servidor - Error 500";
 ---
 
 <Layout>
-	<h1>Internal Server Error - 500 error</h1>
+	<h1>{pageTitle}</h1>
 	<p>{error instanceof Error ? error.message : "Erro desconhecido"}</p>
 </Layout>
