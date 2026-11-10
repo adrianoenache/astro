@@ -30,6 +30,8 @@ Inside of your Astro project, you'll see the following folders and files:
 │       └── index.astro
 │       └── about.astro
 │       └── blog.astro
+│       └── 404.astro
+│       └── 500.astro
 └── package.json
 ```
 

@@ -1,0 +1,16 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
+// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+
+interface Props {
+  error: unknown;
+}
+const { error } = Astro.props;
+---
+
+<Layout>
+	<h1>Internal Server Error - 500 error</h1>
+	<p>{error instanceof Error ? error.message : "Erro desconhecido"}</p>
+</Layout>
