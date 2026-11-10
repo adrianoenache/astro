@@ -12,6 +12,10 @@ indent_style = space
 indent_size = 2
 trim_trailing_whitespace = true
 
+# Astro files
+[*.astro]
+indent_style = tab
+
 # Markdown files: preserve trailing whitespace because double trailing spaces
 # are used to force a line break in Markdown rendering.
 [*.md]
