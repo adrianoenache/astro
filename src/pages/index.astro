@@ -12,4 +12,9 @@ const pageDescription = "Meu Site Astro";
 	pageDescription={pageDescription}
 >
 	<h1>{pageTitle}</h1>
+	<Fragment name="custom-scripts">
+		<script type="module">
+			console.warn('Olá Astro!')
+		</script>
+	</Fragment>
 </Layout>
