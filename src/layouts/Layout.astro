@@ -1,4 +1,6 @@
 ---
+import '../styles/global.css';
+import HeadStyleCriticalCSS from "../components/head/HeadStyleCriticalCSS.astro";
 import Menu from "../components/Menu.astro";
 ---
 
@@ -12,17 +14,12 @@ import Menu from "../components/Menu.astro";
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<link rel="icon" href="/favicon.ico" />
 		<title>Astro Basico</title>
-		<style>
-			html,
-			body {
-				margin: 0;
-				width: 100%;
-				height: 100%;
-			}
-		</style>
+		<HeadStyleCriticalCSS />
 	</head>
 	<body>
-		<Menu />
-		<slot />
+		<main>
+			<Menu />
+			<slot />
+		</main>
 	</body>
 </html>
