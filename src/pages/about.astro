@@ -5,6 +5,7 @@ import Layout from "../layouts/Layout.astro";
 // Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
 
 const pageTitle = "Sobre Mim";
+const pageDescription = "Sobre Mim";
 const identify = {
 	firstName: "Sarah",
 	country: "Canadá",
@@ -28,7 +29,7 @@ const skillFontWeight = "bold";
 const skillTextCase = "uppercase";
 ---
 
-<Layout>
+<Layout pageTitle={pageTitle} pageDescription={pageDescription}>
 	<style define:vars={{skillColor, skillFontWeight, skillTextCase}}>
 		.skill {
 			color: var(--skillColor);

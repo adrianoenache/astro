@@ -6,9 +6,10 @@ import MenuBlog from "../components/MenuBlog.astro";
 // Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
 
 const pageTitle = "Blog Astro";
+const pageDescription = "Blog Astro";
 ---
 
-<Layout>
+<Layout pageTitle={pageTitle} pageDescription={pageDescription}>
 	<h1>{pageTitle}</h1>
 	<MenuBlog />
 </Layout>

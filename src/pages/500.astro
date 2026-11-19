@@ -10,9 +10,10 @@ interface Props {
 const { error } = Astro.props;
 
 const pageTitle = "Erro Interno do Servidor - Error 500";
+const pageDescription = "Erro Interno do Servidor - Error 500";
 ---
 
-<Layout>
+<Layout pageTitle={pageTitle} pageDescription={pageDescription}>
 	<h1>{pageTitle}</h1>
 	<p>{error instanceof Error ? error.message : "Erro desconhecido"}</p>
 </Layout>

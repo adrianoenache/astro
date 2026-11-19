@@ -1,5 +1,13 @@
 ---
-import '../styles/global.css';
+export interface Props {
+	pageTitle: string;
+	pageDescription: string;
+}
+
+const { pageTitle = "Astro Basico", pageDescription = "Astro Basico" } =
+	Astro.props;
+
+import "../styles/global.css";
 import HeadStyleCriticalCSS from "../components/head/HeadStyleCriticalCSS.astro";
 import Menu from "../components/Menu.astro";
 ---
@@ -10,10 +18,10 @@ import Menu from "../components/Menu.astro";
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
-		<meta name="description" content="Astro Basico" />
+		<meta name="description" content={pageDescription} />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<link rel="icon" href="/favicon.ico" />
-		<title>Astro Basico</title>
+		<title>{pageTitle}</title>
 		<HeadStyleCriticalCSS />
 	</head>
 	<body>
