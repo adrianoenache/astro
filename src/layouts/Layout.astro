@@ -18,7 +18,9 @@ const { pageLang = "pt-BR" } = Astro.props;
 import "../styles/global.css";
 
 // Components
+import HeadDefault from "../components/head/HeadDefault.astro";
 import HeadSEO from "../components/head/HeadSEO.astro";
+import HeadFavicon from "../components/head/HeadFavicon.astro";
 import HeadStyleCriticalCSS from "../components/head/HeadStyleCriticalCSS.astro";
 import Menu from "../components/Menu.astro";
 ---
@@ -26,11 +28,8 @@ import Menu from "../components/Menu.astro";
 <!doctype html>
 <html lang={pageLang}>
 	<head>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
+		<HeadDefault />
+		<HeadFavicon />
 		<HeadSEO pageTitle={Astro.props.pageTitle} pageDescription={Astro.props.pageDescription} pageKeywords={Astro.props.pageKeywords} />
 		<HeadStyleCriticalCSS />
 		<slot name="custom-styles" />
@@ -40,5 +39,6 @@ import Menu from "../components/Menu.astro";
 			<Menu />
 			<slot />
 		</main>
+		<slot name="custom-scripts" />
 	</body>
 </html>
