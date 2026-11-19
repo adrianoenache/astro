@@ -40,5 +40,8 @@ import Menu from "../components/Menu.astro";
 			<slot />
 		</main>
 		<slot name="custom-scripts" />
+		<script>
+			import('../scripts/layout.mjs');
+		</script>
 	</body>
 </html>
