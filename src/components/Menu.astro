@@ -8,7 +8,9 @@ const menu = [
 
 <nav>
 	<ul>
-		{menu.map((item) => (
+		{menu
+		.filter((item) => item.href?.trim() && item.name?.trim())
+		.map((item) => (
 			<li>
 				<a href={item.href}>{item.name}</a>
 			</li>
