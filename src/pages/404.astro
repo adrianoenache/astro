@@ -1,13 +1,15 @@
 ---
+// Import components for the page.
 import Layout from '../layouts/Layout.astro';
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
-
+// Props for the page.
 const pageTitle = "Página Não Encontrada - Error 404";
 const pageDescription = "Página Não Encontrada - Error 404";
 ---
 
-<Layout pageTitle={pageTitle} pageDescription={pageDescription}>
+<Layout
+	pageTitle={pageTitle}
+	pageDescription={pageDescription}
+>
 	<h1>{pageTitle}</h1>
 </Layout>

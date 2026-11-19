@@ -1,28 +1,39 @@
 ---
+// Layout component for the application, handling the HTML structure and head elements.
+
+// Props for the layout component.
+// pageLang: The language of the page, defaulting to "pt-BR".
+// pageTitle: The title of the page.
+// pageDescription: The description of the page.
+// pageKeywords: The keywords for the page.
 export interface Props {
-	pageTitle: string;
-	pageDescription: string;
+	pageLang?: string;
+	pageTitle?: string;
+	pageDescription?: string;
+	pageKeywords?: string;
 }
+const { pageLang = "pt-BR" } = Astro.props;
 
-const { pageTitle = "Astro Basico", pageDescription = "Astro Basico" } =
-	Astro.props;
-
+// Styles
 import "../styles/global.css";
+
+// Components
+import HeadSEO from "../components/head/HeadSEO.astro";
 import HeadStyleCriticalCSS from "../components/head/HeadStyleCriticalCSS.astro";
 import Menu from "../components/Menu.astro";
 ---
 
 <!doctype html>
-<html lang="pt-BR">
+<html lang={pageLang}>
 	<head>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
-		<meta name="description" content={pageDescription} />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<link rel="icon" href="/favicon.ico" />
-		<title>{pageTitle}</title>
+		<HeadSEO pageTitle={Astro.props.pageTitle} pageDescription={Astro.props.pageDescription} pageKeywords={Astro.props.pageKeywords} />
 		<HeadStyleCriticalCSS />
+		<slot name="custom-styles" />
 	</head>
 	<body>
 		<main>
