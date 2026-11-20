@@ -1,20 +1,53 @@
 ---
 // Text component for rendering text elements with customizable HTML tags and CSS classes.
 
-// Props for the text component.
-export interface Props {
-	tag: string; // The HTML tag to be used for the text element.
-	customClass?: string; // Custom CSS class for the text element.
+// Props and default values for the text component.
+import type { HTMLAttributes } from "astro/types";
+
+// Define the allowed HTML tags for the text component.
+type TextTag =
+  | "span"
+  | "p"
+  | "h1"
+  | "h2"
+  | "h3"
+  | "h4"
+  | "h5"
+  | "h6"
+  | "strong"
+  | "em"
+  | "small"
+  | "mark"
+  | "sub"
+  | "sup"
+  | "label"
+  | "li";
+
+// Define the props interface for the text component.
+interface Props extends HTMLAttributes<TextTag> {
+  tag?: TextTag; // HTML tag to render the text as.
+  customClass?: string; // Custom CSS class for the text element.
 }
 
-// Default values for the props.
+// Destructure the props and set default values for the text component.
 const {
-	tag = "span",
-	customClass
+  tag: Tag = "span",
+  customClass,
+  ...attrs
 } = Astro.props;
+
+// Define the default CSS class for the text component.
+const COMPONENT_CLASS = "ads-text";
 ---
-<{tag} class={customClass}>
+
+<Tag
+	class:list={[
+    COMPONENT_CLASS,
+    customClass
+  ]}
+	{...attrs}
+>
 	<slot name="text-before" />
-	<slot />
+  <slot />
 	<slot name="text-after" />
-<{"/" + tag}>
+</Tag>

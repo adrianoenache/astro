@@ -13,7 +13,7 @@ const pageDescription = "Meu Site Astro";
 	pageDescription={pageDescription}
 >
 
-	<Text tag="h1">
+	<Text tag="h1" id="main-title" customClass="main-title" class:list={["teste"]}>
 		{pageTitle}
 		<slot name="text-after">
 			<br />
