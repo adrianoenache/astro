@@ -1,6 +1,7 @@
 ---
 // Import components for the page.
 import MainLayout from "../layouts/MainLayout.astro";
+import Text from "../components/atomic-design/atoms/text/Text.astro";
 
 // Props for the page.
 const pageTitle = "Sobre Mim";
@@ -38,8 +39,8 @@ const skillTextCase = "uppercase";
 			text-transform: var(--skillTextCase);
 		}
 	</style>
-	<h1>{pageTitle}</h1>
-	<p>Aqui estão alguns fatos sobre mim:</p>
+	<Text tag="h1">{pageTitle}</Text>
+	<Text tag="p">Aqui estão alguns fatos sobre mim:</Text>
 	<ul>
 		<li>Meu nome é {identify.firstName}.</li>
 		<li>
@@ -56,19 +57,19 @@ const skillTextCase = "uppercase";
 			)
 		}
 	</ul>
-	<p>Minhas habilidades são:</p>
+	<Text tag="p">Minhas habilidades são:</Text>
 	<ul>
 		{skills.map((habilidade) => <li class="skill">{habilidade}</li>)}
 	</ul>
-	{happy && <p>Estou feliz em estar aprendendo Astro!</p>}
+	{happy && <Text tag="p">Estou feliz em estar aprendendo Astro!</Text>}
 
-	{finished && <p>Eu terminei esse tutorial!</p>}
+	{finished && <Text tag="p">Eu terminei esse tutorial!</Text>}
 
 	{
 		goal === 3 ? (
-			<p>Minha meta é terminar em 3 dias.</p>
+			<Text tag="p">Minha meta é terminar em 3 dias.</Text>
 		) : (
-			<p>Minha meta não é em 3 dias.</p>
+			<Text tag="p">Minha meta não é em 3 dias.</Text>
 		)
 	}
 </MainLayout>

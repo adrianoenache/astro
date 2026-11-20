@@ -1,0 +1,20 @@
+---
+// Text component for rendering text elements with customizable HTML tags and CSS classes.
+
+// Props for the text component.
+export interface Props {
+	tag: string; // The HTML tag to be used for the text element.
+	customClass?: string; // Custom CSS class for the text element.
+}
+
+// Default values for the props.
+const {
+	tag = "span",
+	customClass
+} = Astro.props;
+---
+<{tag} class={customClass}>
+	<slot name="text-before" />
+	<slot />
+	<slot name="text-after" />
+<{"/" + tag}>

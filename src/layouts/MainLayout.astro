@@ -11,21 +11,21 @@ import Menu from "../components/Menu.astro";
 // Styles
 import "../styles/global.css";
 
-// Props for the layout component.
-// pageLang: The language of the page, defaulting to "pt-BR".
-// pageTitle: The title of the page.
-// pageDescription: The description of the page.
-// pageKeywords: The keywords for the page.
-
+// Props and default values for the layout component.
 export interface Props {
-	pageLang?: string;
-	pageTitle?: string;
-	pageDescription?: string;
-	pageKeywords?: string;
+	pageLang?: string; // The language of the page, defaulting to "pt-BR".
+	pageTitle?: string; // The title of the page.
+	pageDescription?: string; // The description of the page.
+	pageKeywords?: string; // The keywords for the page.
 }
 
-const { pageLang = "pt-BR" } = Astro.props;
-const { pageTitle, pageDescription, pageKeywords } = Astro.props;
+// Default values for the props.
+const {
+	pageLang = "pt-BR",
+	pageTitle,
+	pageDescription,
+	pageKeywords
+} = Astro.props;
 ---
 
 <!DOCTYPE html>

@@ -1,6 +1,7 @@
 ---
 // Import components for the page.
 import MainLayout from "../layouts/MainLayout.astro";
+import Text from "../components/atomic-design/atoms/text/Text.astro";
 
 // Props for the page.
 const pageTitle = "Meu Site Astro";
@@ -11,8 +12,18 @@ const pageDescription = "Meu Site Astro";
 	pageTitle={pageTitle}
 	pageDescription={pageDescription}
 >
-	<h1>{pageTitle}</h1>
+
+	<Text tag="h1">
+		{pageTitle}
+		<slot name="text-after">
+			<br />
+			<Text tag="span">
+				Lorem ipsum dolor.
+			</Text>
+		</slot>
+	</Text>
 	<Fragment name="custom-scripts">
+		<Text tag="p">Este é um parágrafo de exemplo.</Text>
 		<script type="module">
 			console.warn('Olá Astro!')
 		</script>

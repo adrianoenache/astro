@@ -5,6 +5,7 @@
 // Import components for the page.
 import MainLayout from "../layouts/MainLayout.astro";
 import Welcome from "../components/Welcome.astro";
+import Text from "../components/atomic-design/atoms/text/Text.astro";
 
 // Props for the page.
 const pageTitle = "Bem-vindo";
@@ -15,6 +16,6 @@ const pageDescription = "Bem-vindo ao meu site Astro";
 	pageTitle={pageTitle}
 	pageDescription={pageDescription}
 >
-	<h1>{pageTitle}</h1>
+	<Text tag="h1">{pageTitle}</Text>
 	<Welcome />
 </MainLayout>
