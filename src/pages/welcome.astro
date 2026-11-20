@@ -3,18 +3,18 @@
 // Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
 
 // Import components for the page.
-import Layout from '../layouts/Layout.astro';
-import Welcome from '../components/Welcome.astro';
+import MainLayout from "../layouts/MainLayout.astro";
+import Welcome from "../components/Welcome.astro";
 
 // Props for the page.
 const pageTitle = "Bem-vindo";
 const pageDescription = "Bem-vindo ao meu site Astro";
 ---
 
-<Layout
+<MainLayout
 	pageTitle={pageTitle}
 	pageDescription={pageDescription}
 >
 	<h1>{pageTitle}</h1>
 	<Welcome />
-</Layout>
+</MainLayout>

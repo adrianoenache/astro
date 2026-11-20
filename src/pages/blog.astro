@@ -1,6 +1,6 @@
 ---
 // Import components for the page.
-import Layout from "../layouts/Layout.astro";
+import MainLayout from "../layouts/MainLayout.astro";
 import MenuBlog from "../components/MenuBlog.astro";
 
 // Props for the page.
@@ -8,11 +8,11 @@ const pageTitle = "Blog Astro";
 const pageDescription = "Blog Astro";
 ---
 
-<Layout
+<MainLayout
 	pageTitle={pageTitle}
 	pageDescription={pageDescription}
 	pageKeywords="Blog, Astro"
 >
 	<h1>{pageTitle}</h1>
 	<MenuBlog />
-</Layout>
+</MainLayout>

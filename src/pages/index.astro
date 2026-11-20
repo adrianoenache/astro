@@ -1,13 +1,13 @@
 ---
 // Import components for the page.
-import Layout from '../layouts/Layout.astro';
+import MainLayout from "../layouts/MainLayout.astro";
 
 // Props for the page.
 const pageTitle = "Meu Site Astro";
 const pageDescription = "Meu Site Astro";
 ---
 
-<Layout
+<MainLayout
 	pageTitle={pageTitle}
 	pageDescription={pageDescription}
 >
@@ -17,4 +17,4 @@ const pageDescription = "Meu Site Astro";
 			console.warn('Olá Astro!')
 		</script>
 	</Fragment>
-</Layout>
+</MainLayout>

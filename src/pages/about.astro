@@ -1,6 +1,6 @@
 ---
 // Import components for the page.
-import Layout from "../layouts/Layout.astro";
+import MainLayout from "../layouts/MainLayout.astro";
 
 // Props for the page.
 const pageTitle = "Sobre Mim";
@@ -27,7 +27,7 @@ const skillFontWeight = "bold";
 const skillTextCase = "uppercase";
 ---
 
-<Layout
+<MainLayout
 	pageTitle={pageTitle}
 	pageDescription={pageDescription}
 >
@@ -71,4 +71,4 @@ const skillTextCase = "uppercase";
 			<p>Minha meta não é em 3 dias.</p>
 		)
 	}
-</Layout>
+</MainLayout>
