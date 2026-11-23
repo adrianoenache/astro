@@ -10,6 +10,9 @@ import MainHeader from "../components/atomic-design/organisms/main-header/MainHe
 import Menu from "../components/Menu.astro";
 import MainFooter from "../components/atomic-design/organisms/main-footer/MainFooter.astro";
 
+// Import type for the frontmatter of a post.
+import type { PostFrontmatter } from "../types/PostFrontmatter";
+
 // Styles
 import "../styles/global.css";
 
@@ -19,7 +22,7 @@ export interface Props {
 	pageTitle?: string; // The title of the page.
 	pageDescription?: string; // The description of the page.
 	pageKeywords?: string; // The keywords for the page.
-	frontmatter?: Record<string, any>; // The frontmatter of the page.
+	frontmatter?: PostFrontmatter; // The frontmatter of the page.
 }
 
 // Default values for the props.
@@ -57,7 +60,7 @@ const {
 			<h1>Main Footer</h1>
 		</MainFooter>
 		<slot name="custom-scripts" />
-		<script>
+		<script type="module">
 			import('../scripts/layout.mjs');
 		</script>
 	</body>
