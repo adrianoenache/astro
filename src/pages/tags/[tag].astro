@@ -1,0 +1,30 @@
+---
+// Import statements and type definitions for the layout component.
+
+// Layout component for rendering Markdown posts with frontmatter metadata.
+import MainLayout from "../../layouts/MainLayout.astro";
+
+// Import atomic design components used in the layout.
+import Text from "../../components/atomic-design/atoms/text/Text.astro";
+
+// Get the static paths for the tags.
+export async function getStaticPaths() {
+  return [
+    { params: { tag: "astro" } },
+    { params: { tag: "sucessos" } },
+    { params: { tag: "comunidade" } },
+    { params: { tag: "blogueirando" } },
+    { params: { tag: "contratempos" } },
+    { params: { tag: "aprendendo em público" } },
+  ];
+}
+
+const { tag } = Astro.params;
+---
+<MainLayout
+  pageTitle={tag}
+>
+	<Text tag="p">
+		Posts com a tag: {tag}
+	</Text>
+</MainLayout>
