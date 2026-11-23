@@ -1,0 +1,48 @@
+---
+// Tags page for the blog
+
+// Import the main layout and text components for the page
+import MainLayout from "../../layouts/MainLayout.astro";
+import Text from "../../components/atomic-design/atoms/text/Text.astro";
+
+// Import types and components for the tags page
+import type { PostFrontmatter } from "../../types/PostFrontmatter";
+
+// Define the structure of a markdown post with optional URL and frontmatter containing post metadata
+interface MarkdownPost {
+	url?: string;
+	frontmatter: PostFrontmatter;
+}
+
+// Define the structure of a markdown post with optional URL and frontmatter containing post metadata
+const matches = import.meta.glob("../posts/*.md", {
+	eager: true,
+});
+
+// Get all markdown posts from the posts directory
+const posts = Object.values(matches) as MarkdownPost[];
+
+// Extract unique tags from all posts and count their occurrences
+const tags = [...new Set(posts.flatMap((post) => post.frontmatter.tags ?? []))]
+	.sort()
+	.map((tag) => ({
+		name: tag,
+		count: posts.filter((post) => post.frontmatter.tags.includes(tag)).length,
+	}));
+---
+
+<MainLayout pageTitle="Tags" pageDescription="Lista de todas as tags do blog">
+	<Text tag="h1">Tags do Blog</Text>
+
+	<nav aria-label="Lista de tags do blog">
+		<ul>
+			{tags.map((tag) => (
+				<li>
+					<a href={`/tags/${tag.name}`}>
+						{tag.name} ({tag.count})
+					</a>
+				</li>
+			))}
+		</ul>
+	</nav>
+</MainLayout>
