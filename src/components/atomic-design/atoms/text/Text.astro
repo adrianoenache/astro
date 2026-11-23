@@ -34,7 +34,7 @@ const {
   tag: Tag = "span",
   customClass,
   ...attrs
-} = Astro.props;
+} = Astro.props as Props;
 
 // Define the default CSS class for the text component.
 const COMPONENT_CLASS = "ads-text";
@@ -47,7 +47,7 @@ const COMPONENT_CLASS = "ads-text";
   ]}
 	{...attrs}
 >
-	<slot name="text-before" />
+	<slot name="before" />
   <slot />
-	<slot name="text-after" />
+	<slot name="after" />
 </Tag>

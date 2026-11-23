@@ -1,4 +1,5 @@
 ---
+layout: ../../layouts/MainLayout.astro
 title: Minha Segunda Postagem no Blog
 author: Aluno de Astro
 description: "Após aprender um pouco sobre Astro, eu não consegui parar!"

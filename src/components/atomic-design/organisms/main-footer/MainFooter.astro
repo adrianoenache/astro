@@ -1,0 +1,32 @@
+---
+// MainFooter component for the application's main footer section.
+
+// Import necessary types from Astro.
+import type { HTMLAttributes } from "astro/types";
+
+// Define the props interface for the main footer component.
+interface Props extends HTMLAttributes<"footer"> {
+  customClass?: string; // Custom CSS class for the main footer element.
+}
+
+// Destructure the props and set default values for the main footer component.
+const {
+  customClass,
+  ...attrs
+} = Astro.props as Props;
+
+// Define the default CSS class for the main footer component.
+const COMPONENT_CLASS = "ads-main-footer";
+---
+
+<footer
+  class:list={[
+    COMPONENT_CLASS,
+    customClass,
+  ]}
+  {...attrs}
+>
+  <slot name="before" />
+  <slot />
+  <slot name="after" />
+</footer>

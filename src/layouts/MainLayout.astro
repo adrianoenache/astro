@@ -6,7 +6,9 @@ import HeadDefault from "../components/head/HeadDefault.astro";
 import HeadSEO from "../components/head/HeadSEO.astro";
 import HeadFavicon from "../components/head/HeadFavicon.astro";
 import HeadStyleCriticalCSS from "../components/head/HeadStyleCriticalCSS.astro";
+import MainHeader from "../components/atomic-design/organisms/main-header/MainHeader.astro";
 import Menu from "../components/Menu.astro";
+import MainFooter from "../components/atomic-design/organisms/main-footer/MainFooter.astro";
 
 // Styles
 import "../styles/global.css";
@@ -17,6 +19,7 @@ export interface Props {
 	pageTitle?: string; // The title of the page.
 	pageDescription?: string; // The description of the page.
 	pageKeywords?: string; // The keywords for the page.
+	frontmatter?: Record<string, any>; // The frontmatter of the page.
 }
 
 // Default values for the props.
@@ -24,8 +27,9 @@ const {
 	pageLang = "pt-BR",
 	pageTitle,
 	pageDescription,
-	pageKeywords
-} = Astro.props;
+	pageKeywords,
+	frontmatter
+} = Astro.props as Props;
 ---
 
 <!DOCTYPE html>
@@ -33,15 +37,25 @@ const {
 	<head>
 		<HeadDefault />
 		<HeadFavicon />
-		<HeadSEO pageTitle={pageTitle} pageDescription={pageDescription} pageKeywords={pageKeywords} />
+		<HeadSEO
+			pageTitle={pageTitle || frontmatter?.title}
+			pageDescription={pageDescription || frontmatter?.description}
+			pageKeywords={pageKeywords || frontmatter?.tags}
+		/>
 		<HeadStyleCriticalCSS />
 		<slot name="custom-styles" />
 	</head>
 	<body>
-		<main>
+		<MainHeader>
+			<h1>Main Header</h1>
 			<Menu />
+		</MainHeader>
+		<main>
 			<slot />
 		</main>
+		<MainFooter>
+			<h1>Main Footer</h1>
+		</MainFooter>
 		<slot name="custom-scripts" />
 		<script>
 			import('../scripts/layout.mjs');
