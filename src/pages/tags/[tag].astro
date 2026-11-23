@@ -1,30 +1,80 @@
 ---
-// Import statements and type definitions for the layout component.
+// Tag page for displaying posts associated with a specific tag.
 
-// Layout component for rendering Markdown posts with frontmatter metadata.
+// Imports and type definitions for the tag page
 import MainLayout from "../../layouts/MainLayout.astro";
-
-// Import atomic design components used in the layout.
 import Text from "../../components/atomic-design/atoms/text/Text.astro";
 
-// Get the static paths for the tags.
-export async function getStaticPaths() {
-  return [
-    { params: { tag: "astro" } },
-    { params: { tag: "sucessos" } },
-    { params: { tag: "comunidade" } },
-    { params: { tag: "blogueirando" } },
-    { params: { tag: "contratempos" } },
-    { params: { tag: "aprendendo em público" } },
-  ];
+// Imports and type definitions for the tag page
+import type { PostFrontmatter } from "../../types/PostFrontmatter";
+
+// Interface for a markdown post with frontmatter and optional URL.
+interface MarkdownPost {
+	url?: string;
+	frontmatter: PostFrontmatter;
 }
 
-const { tag } = Astro.params;
+// Interface for the tag page props
+interface TagPageProps {
+	posts: MarkdownPost[];
+}
+
+// Sort posts by publish date in descending order.
+const sortByPublishDateDesc = (a: MarkdownPost, b: MarkdownPost) =>
+	new Date(b.frontmatter.pubDate).getTime() -
+	new Date(a.frontmatter.pubDate).getTime();
+
+// Generate static paths for each tag found in the posts
+export async function getStaticPaths() {
+	const matches = import.meta.glob("../posts/*.md", {
+		eager: true,
+	});
+
+	// Convert the imported markdown files into an array of posts
+	const posts = Object.values(matches) as MarkdownPost[];
+
+	// Extract all unique tags from the posts
+	const tags = [
+		...new Set(posts.flatMap((post) => post.frontmatter.tags ?? [])),
+	];
+
+	return tags.map((tag) => ({
+		params: { tag },
+		props: { posts },
+	}));
+}
+
+const tag = Astro.params.tag ?? "";
+
+// Get posts from props
+const { posts } = Astro.props as TagPageProps;
+
+// Filter and sort posts by the current tag
+const filteredPosts = posts
+	.filter(
+		(post) =>
+			post.url && post.frontmatter.title && post.frontmatter.tags.includes(tag),
+	)
+	.sort(sortByPublishDateDesc);
 ---
+
 <MainLayout
-  pageTitle={tag}
+	pageTitle={`Tag: ${tag}`}
+	pageDescription={`Posts relacionados à tag ${tag}`}
 >
-	<Text tag="p">
-		Posts com a tag: {tag}
-	</Text>
+	<Text tag="h1">Posts com a tag: {tag}</Text>
+
+	<nav aria-label={`Posts com a tag ${tag}`}>
+		{filteredPosts.length > 0 ? (
+			<ul>
+				{filteredPosts.map((post) => (
+					<li>
+						<a href={post.url}>{post.frontmatter.title}</a>
+					</li>
+				))}
+			</ul>
+		) : (
+			<Text tag="p">Nenhuma postagem encontrada para esta tag.</Text>
+		)}
+	</nav>
 </MainLayout>
