@@ -4,7 +4,11 @@ export interface Props {
 	pageDescription?: string;
 	pageKeywords?: string;
 }
-const { pageTitle = "Astro Basico", pageDescription = "Astro Basico", pageKeywords = "" } = Astro.props;
+const {
+	pageTitle = "Astro Basico",
+	pageDescription = "Astro Basico",
+	pageKeywords = "",
+} = Astro.props;
 ---
 
 <title>{pageTitle}</title>

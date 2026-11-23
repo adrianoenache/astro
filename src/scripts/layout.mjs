@@ -1,5 +1,5 @@
 const logMessage = () => {
-	console.warn('Olá Astro! JS importado');
+  console.warn('Olá Astro! JS importado');
 };
 
 logMessage();

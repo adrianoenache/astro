@@ -31,11 +31,11 @@ const {
 	pageTitle,
 	pageDescription,
 	pageKeywords,
-	frontmatter
+	frontmatter,
 } = Astro.props as Props;
 ---
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang={pageLang}>
 	<head>
 		<HeadDefault />
@@ -61,7 +61,7 @@ const {
 		</MainFooter>
 		<slot name="custom-scripts" />
 		<script type="module">
-			import('../scripts/layout.mjs');
+			import("../scripts/layout.mjs");
 		</script>
 	</body>
 </html>

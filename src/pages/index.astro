@@ -8,24 +8,23 @@ const pageTitle = "Meu Site Astro";
 const pageDescription = "Meu Site Astro";
 ---
 
-<MainLayout
-	pageTitle={pageTitle}
-	pageDescription={pageDescription}
->
-
-	<Text tag="h1" id="main-title" customClass="main-title" class:list={["teste"]}>
+<MainLayout pageTitle={pageTitle} pageDescription={pageDescription}>
+	<Text
+		tag="h1"
+		id="main-title"
+		customClass="main-title"
+		class:list={["teste"]}
+	>
 		{pageTitle}
 		<slot name="text-after">
 			<br />
-			<Text tag="span">
-				Lorem ipsum dolor.
-			</Text>
+			<Text tag="span">Lorem ipsum dolor.</Text>
 		</slot>
 	</Text>
 	<Fragment name="custom-scripts">
 		<Text tag="p">Este é um parágrafo de exemplo.</Text>
 		<script type="module">
-			console.warn('Olá Astro!')
+			console.warn("Olá Astro!");
 		</script>
 	</Fragment>
 </MainLayout>
