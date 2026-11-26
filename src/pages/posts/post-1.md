@@ -22,4 +22,4 @@ tags: ["astro", "blogueirando", "aprendendo em público"]
 
 Eu irei completar o tutorial do Astro, e então continuarei adicionando mais postagens. Olhe por aqui para o que vem a frente.
 
-[Voltar](/blog)
+[Voltar](../blog)

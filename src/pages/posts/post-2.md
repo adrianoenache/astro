@@ -11,4 +11,4 @@ tags: ["blogueirando", "aprendendo em público", "sucessos"]
 ---
 Após uma primeira semana de sucesso aprendendo Astro, eu decidi tentar um pouco mais. Eu escrevi e importei um pequeno componente da memória!
 
-[Voltar](/blog)
+[Voltar](../blog)
