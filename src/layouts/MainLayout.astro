@@ -3,6 +3,7 @@
 
 // Components
 import HeadDefault from "../components/head/HeadDefault.astro";
+import HeadDiscovery from "../components/head/HeadDiscovery.astro";
 import HeadSEO from "../components/head/HeadSEO.astro";
 import HeadFavicon from "../components/head/HeadFavicon.astro";
 import HeadStyleCriticalCSS from "../components/head/HeadStyleCriticalCSS.astro";
@@ -39,6 +40,7 @@ const {
 <html lang={pageLang}>
 	<head>
 		<HeadDefault />
+		<HeadDiscovery />
 		<HeadFavicon />
 		<HeadSEO
 			pageTitle={pageTitle || frontmatter?.title}

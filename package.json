@@ -13,6 +13,7 @@
     "typescript-check": "tsc --noEmit"
   },
   "dependencies": {
+    "@astrojs/rss": "4.0.19",
     "@astrojs/ts-content-mapper": "0.2.0",
     "astro": "7.4.13",
     "typescript": "7.0.2"
