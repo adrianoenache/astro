@@ -1,0 +1,69 @@
+---
+// Main Layout component for the application, handling the HTML structure and head elements.
+
+// Components
+import HeadDefault from "../components/head/HeadDefault.astro";
+import HeadDiscovery from "../components/head/HeadDiscovery.astro";
+import HeadSEO from "../components/head/HeadSEO.astro";
+import HeadFavicon from "../components/head/HeadFavicon.astro";
+import HeadStyleCriticalCSS from "../components/head/HeadStyleCriticalCSS.astro";
+import MainHeader from "../components/atomic-design/organisms/main-header/MainHeader.astro";
+import Menu from "../components/Menu.astro";
+import MainFooter from "../components/atomic-design/organisms/main-footer/MainFooter.astro";
+
+// Import type for the frontmatter of a post.
+import type { PostFrontmatter } from "../types/PostFrontmatter";
+
+// Styles
+import "../styles/global.css";
+
+// Props and default values for the layout component.
+export interface Props {
+	pageLang?: string; // The language of the page, defaulting to "pt-BR".
+	pageTitle?: string; // The title of the page.
+	pageDescription?: string; // The description of the page.
+	pageKeywords?: string; // The keywords for the page.
+	frontmatter?: PostFrontmatter; // The frontmatter of the page.
+}
+
+// Default values for the props.
+const {
+	pageLang = "pt-BR",
+	pageTitle,
+	pageDescription,
+	pageKeywords,
+	frontmatter,
+} = Astro.props as Props;
+---
+
+<!doctype html>
+<html lang={pageLang}>
+	<head>
+		<HeadDefault />
+		<HeadDiscovery />
+		<HeadFavicon />
+		<HeadSEO
+			pageTitle={pageTitle || frontmatter?.title}
+			pageDescription={pageDescription || frontmatter?.description}
+			pageKeywords={pageKeywords || frontmatter?.tags}
+		/>
+		<HeadStyleCriticalCSS />
+		<slot name="custom-styles" />
+	</head>
+	<body>
+		<MainHeader>
+			<h1>Main Header</h1>
+			<Menu />
+		</MainHeader>
+		<main>
+			<slot />
+		</main>
+		<MainFooter>
+			<h1>Main Footer</h1>
+		</MainFooter>
+		<slot name="custom-scripts" />
+		<script type="module">
+			import("../scripts/layout.mjs");
+		</script>
+	</body>
+</html>

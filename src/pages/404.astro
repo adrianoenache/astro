@@ -1,0 +1,14 @@
+---
+// Import components for the page.
+import MainLayout from "../layouts/MainLayout.astro";
+import Text from "../components/atomic-design/atoms/text/Text.astro";
+
+// Props for the page.
+const pageTitle = "Página Não Encontrada - Error 404";
+const pageDescription = "Página Não Encontrada - Error 404";
+---
+
+<MainLayout pageTitle={pageTitle} pageDescription={pageDescription}>
+	<Text tag="h1">{pageTitle}</Text>
+	<Text tag="p">A página que você está procurando não foi encontrada.</Text>
+</MainLayout>

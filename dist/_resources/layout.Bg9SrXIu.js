@@ -1,0 +1,1 @@
+console.warn(`Olá Astro! JS importado`);

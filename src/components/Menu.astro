@@ -1,0 +1,21 @@
+---
+const menu = [
+	{ name: "Home", href: "/" },
+	{ name: "About", href: "/about" },
+	{ name: "Blog", href: "/blog" },
+	{ name: "TAGs", href: "/tags" },
+	{ name: "Welcome", href: "/welcome" },
+];
+---
+
+<nav aria-label="Main menu">
+	<ul>
+		{menu
+			.filter((item) => item.href?.trim() && item.name?.trim())
+			.map((item) => (
+				<li>
+					<a href={item.href}>{item.name}</a>
+				</li>
+			))}
+	</ul>
+</nav>

@@ -1,0 +1,23 @@
+---
+// MainHeader component for the application's main header section.
+
+// Import necessary types from Astro.
+import type { HTMLAttributes } from "astro/types";
+
+// Define the props interface for the main header component.
+interface Props extends HTMLAttributes<"header"> {
+	customClass?: string; // Custom CSS class for the main header element.
+}
+
+// Destructure the props and set default values for the main header component.
+const { customClass, ...attrs } = Astro.props as Props;
+
+// Define the default CSS class for the main header component.
+const COMPONENT_CLASS = "ads-main-header";
+---
+
+<header class:list={[COMPONENT_CLASS, customClass]} {...attrs}>
+	<slot name="before" />
+	<slot />
+	<slot name="after" />
+</header>

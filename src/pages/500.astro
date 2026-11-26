@@ -1,0 +1,20 @@
+---
+// Import components for the page.
+import MainLayout from "../layouts/MainLayout.astro";
+import Text from "../components/atomic-design/atoms/text/Text.astro";
+
+// Props for the page.
+interface Props {
+	error: unknown;
+}
+const { error } = Astro.props;
+const pageTitle = "Erro Interno do Servidor - Error 500";
+const pageDescription = "Erro Interno do Servidor - Error 500";
+---
+
+<MainLayout pageTitle={pageTitle} pageDescription={pageDescription}>
+	<Text tag="h1">{pageTitle}</Text>
+	<Text tag="p">
+		{error instanceof Error ? error.message : "Erro desconhecido"}
+	</Text>
+</MainLayout>

@@ -1,10 +1,30 @@
 ---
-import Layout from '../layouts/Layout.astro';
+// Import components for the page.
+import MainLayout from "../layouts/MainLayout.astro";
+import Text from "../components/atomic-design/atoms/text/Text.astro";
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+// Props for the page.
+const pageTitle = "Meu Site Astro";
+const pageDescription = "Meu Site Astro";
 ---
 
-<Layout>
-	<h1>Meu Site Astro</h1>
-</Layout>
+<MainLayout pageTitle={pageTitle} pageDescription={pageDescription}>
+	<Text
+		tag="h1"
+		id="main-title"
+		customClass="main-title"
+		class:list={["teste"]}
+	>
+		{pageTitle}
+		<slot name="text-after">
+			<br />
+			<Text tag="span">Lorem ipsum dolor.</Text>
+		</slot>
+	</Text>
+	<Fragment name="custom-scripts">
+		<Text tag="p">Este é um parágrafo de exemplo.</Text>
+		<script type="module">
+			console.warn("Olá Astro!");
+		</script>
+	</Fragment>
+</MainLayout>

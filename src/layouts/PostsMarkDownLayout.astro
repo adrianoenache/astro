@@ -1,0 +1,50 @@
+---
+// Import statements and type definitions for the layout component.
+
+// Layout component for rendering Markdown posts with frontmatter metadata.
+import MainLayout from "../layouts/MainLayout.astro";
+
+// Import atomic design components used in the layout.
+import Text from "../components/atomic-design/atoms/text/Text.astro";
+
+// Import type for the frontmatter of a post.
+import type { PostFrontmatter } from "../types/PostFrontmatter";
+
+// Extract frontmatter from the props.
+const { frontmatter } = Astro.props as {
+	frontmatter: PostFrontmatter; // Props for the frontmatter of the post
+};
+
+// Format the publication date for display.
+const formattedDate = new Date(frontmatter.pubDate).toLocaleDateString("pt-BR");
+---
+
+<MainLayout
+	pageTitle={frontmatter.title}
+	pageDescription={frontmatter.description}
+	pageKeywords={frontmatter.tags}
+>
+	<header>
+		<Text tag="h1">{frontmatter.title}</Text>
+
+		<Text tag="p">{frontmatter.description}</Text>
+
+		<Text tag="p">
+			<Text tag="small">Escrito por {frontmatter.author}</Text>
+
+			<br />
+
+			<Text tag="small">Publicado em {formattedDate}</Text>
+		</Text>
+
+		<img
+			src={frontmatter.image.url}
+			alt={frontmatter.image.alt}
+			width="100%"
+			loading="lazy"
+			style="aspect-ratio: 16/9; object-fit: cover;"
+		/>
+	</header>
+
+	<slot />
+</MainLayout>

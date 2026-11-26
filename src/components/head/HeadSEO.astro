@@ -1,0 +1,16 @@
+---
+export interface Props {
+	pageTitle?: string;
+	pageDescription?: string;
+	pageKeywords?: string;
+}
+const {
+	pageTitle = "Astro Basico",
+	pageDescription = "Astro Basico",
+	pageKeywords = "",
+} = Astro.props;
+---
+
+<title>{pageTitle}</title>
+<meta name="description" content={pageDescription} />
+{pageKeywords && <meta name="keywords" content={pageKeywords} />}

@@ -23,13 +23,20 @@ Inside of your Astro project, you'll see the following folders and files:
 │   │   └── background.svg
 │   ├── components
 │   │   └── Welcome.astro
-│   │   └── menu.astro
+│   │   └── Menu.astro
+│   │   └── MenuBlog.astro
 │   ├── layouts
 │   │   └── Layout.astro
 │   └── pages
 │       └── index.astro
+│       └── 404.astro
+│       └── 500.astro
 │       └── about.astro
 │       └── blog.astro
+│       └── posts
+│           └── post-1.astro
+│           └── post-2.astro
+│           └── post-3.astro
 └── package.json
 ```
 
