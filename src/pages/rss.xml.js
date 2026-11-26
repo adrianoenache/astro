@@ -8,6 +8,6 @@ export async function GET(context) {
     description: 'Minha jornada aprendendo Astro',
     site: context.site,
     items: await pagesGlobToRssItems(import.meta.glob('./**/*.md')),
-    customData: `<language>pt-br</language>`,
+    customData: `<language>pt-BR</language>`,
   });
 }
