@@ -1,0 +1,27 @@
+{
+  "specVersion": "1.0",
+  "host": {
+    "displayName": "Astro Learning",
+    "identifier": "https://astro-learning.com"
+  },
+  "entries": [
+    {
+      "identifier": "urn:air:astro-learning.com:knowledge:llms",
+      "displayName": "LLMs Index",
+      "type": "text/markdown",
+      "url": "https://astro-learning.com/llms.txt"
+    },
+    {
+      "identifier": "urn:air:astro-learning.com:website:sitemap",
+      "displayName": "Website Sitemap",
+      "type": "application/xml",
+      "url": "https://astro-learning.com/sitemap.xml"
+    },
+    {
+      "identifier": "urn:air:astro-learning.com:docs:catalog",
+      "displayName": "Documentation Catalog",
+      "type": "application/ai-catalog+json",
+      "url": "https://astro-learning.com/docs-catalog.json"
+    }
+  ]
+}

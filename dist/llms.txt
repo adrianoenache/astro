@@ -1,0 +1,26 @@
+# Astro Starter Template
+
+> Template base para desenvolvimento de sites utilizando Astro 7, TypeScript, SEO, acessibilidade e alto desempenho.
+
+Este projeto fornece uma estrutura inicial para criação de sites estáticos e SSR utilizando Astro.
+
+## Site
+
+- [Página Inicial](https://meusite.com/): Página principal do projeto.
+- [Blog](https://meusite.com/blog/): Artigos e tutoriais.
+- [Sobre](https://meusite.com/about/): Informações sobre o projeto.
+- [Contato](https://meusite.com/contact/): Canal de comunicação.
+
+## Documentação
+
+- [Astro Documentation](https://docs.astro.build/): Documentação oficial do Astro.
+- [Configuration Reference](https://docs.astro.build/en/reference/configuration-reference/): Referência de configuração.
+- [Astro Components](https://docs.astro.build/en/basics/astro-components/): Guia de componentes.
+- [Content Collections](https://docs.astro.build/en/guides/content-collections/): Gerenciamento de conteúdo.
+- [View Transitions](https://docs.astro.build/en/guides/view-transitions/): Navegação e transições.
+
+## Desenvolvimento
+
+- [Código Fonte](https://github.com/seuusuario/seurepositorio): Repositório do projeto.
+- [Sitemap](https://meusite.com/sitemap.xml): Estrutura pública do site.
+- [AI Catalog](https://meusite.com/.well-known/ai-catalog.json): Catálogo para agentes de IA.
